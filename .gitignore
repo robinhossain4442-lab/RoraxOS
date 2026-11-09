@@ -1,31 +1,21 @@
-# Built things
-_Debug/
-Compiled/
+# Gradle
+.gradle/
+build/
+app/build/
 
-# AudioCache can be rebuilt from sources
-AudioCache/
+# Local config
+local.properties
 
-# Lockfile
-_OpenInEditor.lock
+# IDE
+.idea/
+*.iml
+.DS_Store
 
-# User settings
-Game.agf.user
-*.crm.user
+# Android Studio navigation / build cache
+captures/
+.externalNativeBuild/
+.cxx/
 
-# Backups
-Game.agf.bak
-backup_acsprset.spr
-
-# Memory dumps
-*.dmp
-
-# Temporary files
-# temporarily created during sprite or room background compression
-~aclzw.tmp
-# temporary, main game data, before getting packed into exe
-game28.dta
-# temporary build of the game before being moved to Compiled/ folder
-*.exe
-
-# Log files
-warnings.log
+# Keystores — never commit signing keys
+*.jks
+*.keystore

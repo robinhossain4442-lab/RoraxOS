@@ -1,0 +1,44 @@
+{
+  "tools": [
+    {
+      "id": "terminal",
+      "name": "Open Terminal",
+      "description": "Interactive shell inside the Linux environment",
+      "category": "Utilities",
+      "iconName": "terminal",
+      "command": "/bin/bash",
+      "requiredPackages": [],
+      "requiresRoot": false
+    },
+    {
+      "id": "sys_info",
+      "name": "System Info",
+      "description": "Show kernel, CPU, and memory info for the environment",
+      "category": "Utilities",
+      "iconName": "info",
+      "command": "uname -a && free -h",
+      "requiredPackages": [],
+      "requiresRoot": false
+    },
+    {
+      "id": "network_info",
+      "name": "Network Info",
+      "description": "Show local network interfaces and routes",
+      "category": "Network",
+      "iconName": "wifi",
+      "command": "ip addr && ip route",
+      "requiredPackages": ["iproute2"],
+      "requiresRoot": false
+    },
+    {
+      "id": "pkg_update",
+      "name": "Update Packages",
+      "description": "Refresh the package index inside the environment",
+      "category": "Utilities",
+      "iconName": "download",
+      "command": "apt-get update",
+      "requiredPackages": [],
+      "requiresRoot": false
+    }
+  ]
+}
