@@ -20,7 +20,8 @@ import com.roraxos.linuxenv.ui.theme.TextSecondary
 fun InstallStep(
     currentStage: InstallStage,
     percent: Int,
-    logLines: List<String>
+    logLines: List<String>,
+    error: String? = null
 ) {
     val stages = listOf(
         InstallStage.PREPARING to "Preparing",
@@ -49,6 +50,15 @@ fun InstallStep(
                     stage.ordinal == currentStage.ordinal -> StageState.ACTIVE
                     else -> StageState.PENDING
                 }
+            )
+        }
+
+        if (error != null) {
+            Spacer(Modifier.height(12.dp))
+            Text(
+                error,
+                color = androidx.compose.ui.graphics.Color(0xFFFF5252),
+                style = MaterialTheme.typography.bodyMedium
             )
         }
 

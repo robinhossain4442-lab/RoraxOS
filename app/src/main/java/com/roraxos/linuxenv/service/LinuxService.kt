@@ -7,12 +7,14 @@ import android.os.IBinder
 import androidx.core.app.NotificationCompat
 import com.roraxos.linuxenv.MainActivity
 import com.roraxos.linuxenv.R
+import com.roraxos.linuxenv.RoraxApp
 import com.roraxos.linuxenv.core.LinuxEnvironment
 
 /**
- * Foreground service that keeps [LinuxEnvironment] alive while the user
- * is running tools, independent of whether the Activity is on screen.
- * Android requires a visible notification for any foreground service.
+ * Foreground service that keeps the shared [LinuxEnvironment] (owned by
+ * [RoraxApp]) alive while the user is running tools, independent of
+ * whether the Activity is on screen. Android requires a visible
+ * notification for any foreground service.
  */
 class LinuxService : Service() {
 
@@ -23,8 +25,9 @@ class LinuxService : Service() {
     }
 
     private val binder = LocalBinder()
-    lateinit var environment: LinuxEnvironment
-        private set
+
+    val environment: LinuxEnvironment
+        get() = (application as RoraxApp).environment
 
     inner class LocalBinder : Binder() {
         fun getService(): LinuxService = this@LinuxService
@@ -32,7 +35,6 @@ class LinuxService : Service() {
 
     override fun onCreate() {
         super.onCreate()
-        environment = LinuxEnvironment(applicationContext)
         createNotificationChannel()
     }
 

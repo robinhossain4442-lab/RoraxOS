@@ -1,12 +1,12 @@
 {
   "tools": [
     {
-      "id": "terminal",
-      "name": "Open Terminal",
-      "description": "Interactive shell inside the Linux environment",
+      "id": "shell_check",
+      "name": "Shell Check",
+      "description": "Runs a one-shot shell command to confirm the environment boots",
       "category": "Utilities",
       "iconName": "terminal",
-      "command": "/bin/bash",
+      "command": "echo 'RoraxOS shell is alive' && id && pwd",
       "requiredPackages": [],
       "requiresRoot": false
     },
@@ -38,6 +38,16 @@
       "iconName": "download",
       "command": "apt-get update",
       "requiredPackages": [],
+      "requiresRoot": false
+    },
+    {
+      "id": "my_github_bot",
+      "name": "My GitHub Bot",
+      "description": "TEMPLATE — replace this command with your own bot script's path",
+      "category": "Automation",
+      "iconName": "bot",
+      "command": "python3 /root/scripts/my_github_bot.py",
+      "requiredPackages": ["python3", "git"],
       "requiresRoot": false
     }
   ]
